@@ -1,0 +1,106 @@
+---
+title: "R and Rstudio"
+author: "Fred Boehm"
+date: "July 16, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+## R 
+
+- Command line-based environment for statistics and data analysis  
+- Rich package collection  
+  - Software  
+  - Data  
+- Diverse teaching materials in R  
+
+
+
+## Rstudio
+
+- User interface to R  
+- Encourages script writing and other reproducible research practices  
+- Enables git repository use  
+
+
+
+## Example data analysis
+
+```{r install, echo = TRUE}
+remotes::install_github("allisonhorst/palmerpenguins")
+```
+
+```{r, echo = TRUE}
+library(palmerpenguins)
+library(ggplot2)
+library(magrittr)
+```
+
+
+::: notes
+
+These data were collected from 2007 - 2009 by Dr. Kristen Gorman with the [Palmer Station Long Term Ecological Research Program](https://pal.lternet.edu/), part of the [US Long Term Ecological Research Network](https://lternet.edu/). The data were imported directly from the [Environmental Data Initiative](https://environmentaldatainitiative.org/) (EDI) Data Portal, and are available for use by CC0 license ("No Rights Reserved") in accordance with the [Palmer Station Data Policy](https://pal.lternet.edu/data/policies). 
+
+:::
+
+## Data description
+
+The curated `palmerpenguins::penguins` dataset contains `r ncol(penguins)` variables (n = `r nrow(penguins)` penguins):
+
+
+
+::: notes
+
+-   `species`: a factor denoting the penguin species (Adelie, Chinstrap, or Gentoo)
+-   `island`: a factor denoting the island (in Palmer Archipelago, Antarctica) where observed (Biscoe, Dream, or Torgersen)
+-   `bill_length_mm`: a number denoting length of the dorsal ridge of penguin bill (millimeters)
+-   `bill_depth_mm`: a number denoting the depth of the penguin bill (millimeters)
+-   `flipper_length_mm`: an integer denoting penguin flipper length (millimeters)
+-   `body_mass_g`: an integer denoting penguin body mass (grams)
+-   `sex`: a factor denoting penguin sex (male, female)
+
+:::
+
+
+```{r}
+penguins[1:3, ]
+```
+
+## Exploratory data analysis
+
+```{r mass-flipper}
+gg <- ggplot(data = penguins, 
+                       aes(x = flipper_length_mm,
+                           y = body_mass_g)) +
+  geom_point(aes(color = species, 
+                 shape = species),
+             alpha = 0.8)
+plotly::ggplotly(gg)
+```
+
+## Exploratory data analysis
+
+- Stratify by species, color by sex
+
+```{r}
+gg2 <- ggplot(penguins, aes(x = flipper_length_mm,
+                            y = body_mass_g)) +
+  geom_point(aes(color = sex)) +
+  theme_minimal() +
+  scale_color_manual(values = c("darkorange","cyan4"), na.translate = FALSE) +
+  labs(title = "Penguin flipper and body mass",
+       subtitle = "Dimensions for male and female Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+       x = "Flipper length (mm)",
+       y = "Body mass (g)",
+       color = "Penguin sex") +
+  facet_wrap(~species)
+plotly::ggplotly(gg2)
+```
+
+
+
+
+
