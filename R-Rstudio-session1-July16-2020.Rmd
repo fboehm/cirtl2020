@@ -78,8 +78,13 @@ gg <- ggplot(data = penguins,
   geom_point(aes(color = species, 
                  shape = species),
              alpha = 0.8)
+gg
+```
+
+```{r}
 plotly::ggplotly(gg)
 ```
+
 
 ## Exploratory data analysis
 
@@ -97,10 +102,10 @@ gg2 <- ggplot(penguins, aes(x = flipper_length_mm,
        y = "Body mass (g)",
        color = "Penguin sex") +
   facet_wrap(~species)
-plotly::ggplotly(gg2)
+gg2
 ```
 
 
-
-
-
+```{r}
+plotly::ggplotly(gg2)
+```

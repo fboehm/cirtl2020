@@ -1,0 +1,17 @@
+---
+title: "Getting started with R and Rstudio"
+author: "Frederick J. Boehm"
+date: "7/16/2020"
+output: pdf_document
+---
+
+## Suggested readings and resources
+
+1. Rstudio cheat sheets: https://rstudio.com/resources/cheatsheets/  
+  Features cheat sheets on Rstudio software and many useful packages
+
+2. R for data science: https://r4ds.had.co.nz/  
+  Free online book. Efficient instruction in data science skills for R
+
+3. Michelle Harris's videos and tutorials on installing R and Rstudio
+
