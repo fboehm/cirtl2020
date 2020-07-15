@@ -23,6 +23,15 @@ output: html_document
 - Enables git repository use  
 
 
+## Rmarkdown
+
+- Enhances (computational) reproducibility  
+- One document holds both R code and narrative text
+- Plain text format works well with `git`
+
+
+
+
 
 ## Example data analysis
 
