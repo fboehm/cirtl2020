@@ -7,7 +7,10 @@ output: html_document
 
 This example is taken from: http://genomicsclass.github.io/book/pages/confounding.html
 
-A 2007 Nature Genetics article found 
+A 2007 Nature Genetics article (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3005333/) 
+found a high proportion of genes differentially expressed between two ethnic groups. 
+
+They attributed these differences to ethnicity. 
 
 
 
