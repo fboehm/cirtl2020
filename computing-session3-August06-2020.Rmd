@@ -12,8 +12,6 @@ found a high proportion of genes differentially expressed between two ethnic gro
 
 They attributed these differences to ethnicity. 
 
-
-
 ```{r, eval = FALSE}
 remotes::install_bioc("Biobase")
 remotes::install_bioc("genefilter")
@@ -57,8 +55,6 @@ print(tab)
 By running a t-test and creating a volcano plot, we note that thousands of genes appear to be differentially expressed between ethnicities. Yet when we perform a similar comparison only on the CEU population between the years 2002 and 2003, we again obtain thousands of differentially expressed genes:
 
 ```{r}
-library(genefilter)
-
 ##remove control genes
 out <- grep("AFFX",rownames(geneExpression))
 
